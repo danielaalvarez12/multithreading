@@ -78,21 +78,12 @@ int main() {
         threads.push_back(std::thread(drawRandomCells, colors[i]));
     }
 
-    // Uncomment the following lines for Part 2 instead of Part 1
-    /*
-    Color interactColors[4] = { RED, GREEN, BLUE, YELLOW };
-    for (int i = 0; i < 4; i++) {
-        threads.push_back(std::thread(drawWithInteraction, interactColors[i]));
-    }
-    */
-
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(BLACK);
 
-        // Draw grid
         gridMutex.lock();
         for (int r = 0; r < GRID_ROWS; ++r) {
             for (int c = 0; c < GRID_COLS; ++c) {
